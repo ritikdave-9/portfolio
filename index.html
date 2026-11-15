@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ritik Dave — Full-Stack Developer</title>
+  <meta name="description" content="Portfolio of Ritik Dave — a full-stack developer from Jaipur building scalable backend systems, distributed architecture and AI-powered automation.">
+  <meta name="theme-color" content="#04050c">
+  <meta property="og:title" content="Ritik Dave — Full-Stack Developer">
+  <meta property="og:description" content="Scalable backends, distributed systems and AI automation — built to hold up in production.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3CradialGradient id='g' cx='35%25' cy='30%25'%3E%3Cstop offset='0' stop-color='%23b7a6ff'/%3E%3Cstop offset='.55' stop-color='%237c5cff'/%3E%3Cstop offset='1' stop-color='%23120a2e'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='32' r='29' fill='url(%23g)'/%3E%3Cellipse cx='32' cy='34' rx='30' ry='8' fill='none' stroke='%2338e8ff' stroke-opacity='.75' stroke-width='2' transform='rotate(-18 32 32)'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <div class="loader-orb"><span class="loader-ring"></span><span class="loader-moon"></span></div>
+      <p class="loader-label">Establishing orbit</p>
+      <div class="loader-track"><span id="loaderBar"></span></div>
+      <p class="loader-pct"><span id="loaderPct">00</span><em>%</em></p>
+    </div>
+  </div>
+
+  <!-- Backdrop -->
+  <canvas id="starfield" class="starfield" aria-hidden="true"></canvas>
+  <div class="space-bg" aria-hidden="true">
+    <div class="aurora aurora-1"></div>
+    <div class="aurora aurora-2"></div>
+    <div class="aurora aurora-3"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- Custom cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <!-- Header -->
+  <header class="nav" id="nav">
+    <a class="brand" href="#top" aria-label="Ritik Dave — back to top">
+      <span class="brand-orb" aria-hidden="true"><i></i></span>
+      <span class="brand-name">Ritik <b>Dave</b></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#mission" data-navlink>Mission</a>
+      <a href="#arsenal" data-navlink>Arsenal</a>
+      <a href="#voyage" data-navlink>Voyage</a>
+      <a href="#projects" data-navlink>Projects</a>
+      <a href="#contact" data-navlink>Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <a class="btn btn-resume" href="assets/ritik-dave-resume.pdf" download>
+        <span>Résumé</span>
+        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+      </a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true" inert>
+    <div class="mm-inner">
+      <p class="mm-eyebrow">Navigation <span>//</span> orbit</p>
+      <nav class="mm-nav" aria-label="Mobile">
+        <a href="#mission" class="mm-link"><span>01</span>Mission</a>
+        <a href="#arsenal" class="mm-link"><span>02</span>Arsenal</a>
+        <a href="#voyage" class="mm-link"><span>03</span>Voyage</a>
+        <a href="#projects" class="mm-link"><span>04</span>Projects</a>
+        <a href="#contact" class="mm-link"><span>05</span>Contact</a>
+      </nav>
+      <div class="mm-foot">
+        <a class="btn btn-primary" href="assets/ritik-dave-resume.pdf" download>Download résumé <span aria-hidden="true">↓</span></a>
+        <div class="mm-socials">
+          <a href="mailto:ritikdave9@gmail.com">Email</a>
+          <a href="https://www.linkedin.com/in/ritik-dave-90b789223" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a href="https://github.com/ritikdave-9" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+        <p class="mm-loc"><span class="live-dot"></span> Jaipur, India · 26.91° N, 75.78° E</p>
+      </div>
+    </div>
+  </div>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-anim" style="--d:0s">
+            <span class="status-dot"></span> Jaipur, India <span class="sep">/</span> Software Engineer
+          </p>
+
+          <h1 class="hero-title hero-anim" style="--d:.08s">Ritik <span class="grad">Dave</span></h1>
+
+          <p class="hero-role hero-anim" style="--d:.16s">
+            <span class="role-prefix">I build</span>
+            <span class="role-typed"><span id="typed" aria-hidden="true">scalable backend systems</span><span class="caret" aria-hidden="true"></span></span>
+            <span class="sr-only">scalable backend systems, AI-powered workflows and distributed microservices.</span>
+          </p>
+
+          <p class="hero-desc hero-anim" style="--d:.24s">
+            Full-stack developer with a backend core — designing clean, scalable systems and
+            wiring AI into real product workflows. Currently engineering statewide platforms
+            and distributed automation at <strong>In Time Tec VisionSoft</strong>.
+          </p>
+
+          <div class="hero-cta hero-anim" style="--d:.32s">
+            <a class="btn btn-primary" href="#projects" data-magnetic>Explore my universe <span aria-hidden="true">↘</span></a>
+            <a class="btn btn-ghost" href="#contact">Open a channel</a>
+          </div>
+
+          <div class="hero-stats hero-anim" style="--d:.4s">
+            <div class="stat">
+              <span class="stat-num" data-count="2" data-suffix="+">2+</span>
+              <span class="stat-label">Years shipping</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="4" data-suffix="">4</span>
+              <span class="stat-label">Flagship builds</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="80" data-suffix="%">80%</span>
+              <span class="stat-label">Test coverage gain</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num" data-count="9.2" data-decimals="1" data-suffix="">9.2</span>
+              <span class="stat-label">CGPA / 10</span>
+            </div>
+          </div>
+
+          <div class="hero-social hero-anim" style="--d:.48s">
+            <span class="hs-label">Find me in orbit</span>
+            <a href="https://github.com/ritikdave-9" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">GH</a>
+            <a href="https://www.linkedin.com/in/ritik-dave-90b789223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">IN</a>
+            <a href="mailto:ritikdave9@gmail.com" aria-label="Send an email">@</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="planet-scene">
+            <div class="planet-halo"></div>
+
+            <div class="orbit-ring orbit-ring-1"><span class="orbit-sat"></span></div>
+            <div class="orbit-ring orbit-ring-2"><span class="orbit-sat"></span></div>
+
+            <div class="planet-ring planet-ring-back"></div>
+            <div class="planet">
+              <span class="planet-bands"></span>
+              <span class="planet-glowspot"></span>
+              <span class="planet-shade"></span>
+            </div>
+            <div class="planet-ring planet-ring-front"></div>
+
+            <div class="moon-orbit"><span class="moon"></span></div>
+
+            <div class="float-chip fc-1"><span class="fc-dot"></span>C# · .NET 8</div>
+            <div class="float-chip fc-2"><span class="fc-dot"></span>React</div>
+            <div class="float-chip fc-3"><span class="fc-dot"></span>RabbitMQ</div>
+            <div class="float-chip fc-4"><span class="fc-dot"></span>Azure</div>
+
+            <span class="spark spark-1"></span>
+            <span class="spark spark-2"></span>
+            <span class="spark spark-3"></span>
+            <span class="comet"></span>
+          </div>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#mission" aria-label="Scroll to mission log">
+        <span class="mouse"><i></i></span>
+        <span>Scroll to explore</span>
+      </a>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>C#</span><i>✦</i><span>.NET 8</span><i>✦</i><span>Clean Architecture</span><i>✦</i><span>React</span><i>✦</i><span>RabbitMQ</span><i>✦</i><span>Distributed Systems</span><i>✦</i><span>AI Agents</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>Docker</span><i>✦</i><span>Next.js</span><i>✦</i>
+        <span>C#</span><i>✦</i><span>.NET 8</span><i>✦</i><span>Clean Architecture</span><i>✦</i><span>React</span><i>✦</i><span>RabbitMQ</span><i>✦</i><span>Distributed Systems</span><i>✦</i><span>AI Agents</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>Docker</span><i>✦</i><span>Next.js</span><i>✦</i>
+        <span>C#</span><i>✦</i><span>.NET 8</span><i>✦</i><span>Clean Architecture</span><i>✦</i><span>React</span><i>✦</i><span>RabbitMQ</span><i>✦</i><span>Distributed Systems</span><i>✦</i><span>AI Agents</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>Docker</span><i>✦</i><span>Next.js</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- MISSION -->
+    <section class="section mission" id="mission" data-num="01">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span>Mission Log</p>
+          <h2>Clean systems.<br><span class="grad">Real-world impact.</span></h2>
+        </header>
+
+        <div class="mission-grid">
+          <div class="mission-copy">
+            <p class="lead reveal">I live on the backend — designing services that stay fast, observable and easy to evolve long after launch.</p>
+            <p class="reveal" style="--d:.08s">
+              At <strong>In Time Tec VisionSoft</strong> I lead backend development on Idaho's
+              statewide childcare platform and architect the distributed backbone of an AI-driven
+              automation system. I care about clean boundaries, boring reliability, and shipping
+              things that actually hold up in production.
+            </p>
+
+            <ul class="directives">
+              <li class="reveal" style="--d:.12s">
+                <span class="directive-icon" aria-hidden="true">◇</span>
+                <div>
+                  <h3>Architecture first</h3>
+                  <p>Clean Architecture, vertical slices, CQRS and event-driven boundaries that keep complexity contained.</p>
+                </div>
+              </li>
+              <li class="reveal" style="--d:.18s">
+                <span class="directive-icon" aria-hidden="true">⚡</span>
+                <div>
+                  <h3>Performance by default</h3>
+                  <p>Indexing, caching and query tuning — latency treated as a feature, not an afterthought.</p>
+                </div>
+              </li>
+              <li class="reveal" style="--d:.24s">
+                <span class="directive-icon" aria-hidden="true">⬡</span>
+                <div>
+                  <h3>AI-augmented delivery</h3>
+                  <p>Custom agents that review PRs, fix bugs and remove the repetitive work engineers shouldn't do.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="reveal" style="--d:.1s">
+            <div class="terminal" data-tilt>
+              <div class="terminal-bar">
+                <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span>
+                <span class="t-title">ritik@orbit — ~/profile</span>
+              </div>
+              <div class="terminal-body">
+                <p class="t-line" style="--i:0"><span class="t-prompt">$</span> whoami</p>
+                <p class="t-line t-out" style="--i:1">Ritik Dave <span class="t-dim">·</span> full-stack developer</p>
+
+                <p class="t-line" style="--i:2"><span class="t-prompt">$</span> cat focus.json</p>
+                <p class="t-line t-out t-indent" style="--i:3"><span class="t-punc">{</span></p>
+                <p class="t-line t-out t-indent2" style="--i:4"><span class="t-key">"backend"</span><span class="t-punc">:</span> <span class="t-val">"C# · .NET 8 · CQRS"</span><span class="t-punc">,</span></p>
+                <p class="t-line t-out t-indent2" style="--i:5"><span class="t-key">"infra"</span><span class="t-punc">:</span> <span class="t-val">"RabbitMQ · Redis · Docker"</span><span class="t-punc">,</span></p>
+                <p class="t-line t-out t-indent2" style="--i:6"><span class="t-key">"frontend"</span><span class="t-punc">:</span> <span class="t-val">"React · Next.js · TypeScript"</span><span class="t-punc">,</span></p>
+                <p class="t-line t-out t-indent2" style="--i:7"><span class="t-key">"ai"</span><span class="t-punc">:</span> <span class="t-val">"agents · MCP · n8n"</span></p>
+                <p class="t-line t-out t-indent" style="--i:8"><span class="t-punc">}</span></p>
+
+                <p class="t-line" style="--i:9"><span class="t-prompt">$</span> status</p>
+                <p class="t-line t-out t-ok" style="--i:10"><span class="mini-dot"></span> shipping <span class="t-dim">·</span> learning <span class="t-dim">·</span> open to hard problems</p>
+                <p class="t-line t-cursor" style="--i:11"><span class="t-prompt">$</span> <span class="blink">▮</span></p>
+              </div>
+            </div>
+            <p class="terminal-note">// a quick look under the hood</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARSENAL -->
+    <section class="section arsenal" id="arsenal" data-num="02">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span>Tech Arsenal</p>
+          <h2>Everything in <span class="grad">steady orbit.</span></h2>
+          <p class="section-sub">A backend core surrounded by the tools I use to ship end-to-end.</p>
+        </header>
+
+        <div class="arsenal-grid">
+          <div class="orbit-stage reveal">
+            <div class="orbit-system" role="img" aria-label="Technology orbit: C#, .NET 8, SQL, Python, React, Node.js, TypeScript, Next.js, RabbitMQ, Redis, Docker, Azure, Elasticsearch, PostgreSQL">
+              <div class="ring ring-a" aria-hidden="true">
+                <div class="arm" style="--a:0deg"><span class="node"><span class="node-inner">C#</span></span></div>
+                <div class="arm" style="--a:90deg"><span class="node"><span class="node-inner">.NET 8</span></span></div>
+                <div class="arm" style="--a:180deg"><span class="node"><span class="node-inner">SQL</span></span></div>
+                <div class="arm" style="--a:270deg"><span class="node"><span class="node-inner">Python</span></span></div>
+              </div>
+              <div class="ring ring-b" aria-hidden="true">
+                <div class="arm" style="--a:45deg"><span class="node"><span class="node-inner">React</span></span></div>
+                <div class="arm" style="--a:135deg"><span class="node"><span class="node-inner">Node.js</span></span></div>
+                <div class="arm" style="--a:225deg"><span class="node"><span class="node-inner">TypeScript</span></span></div>
+                <div class="arm" style="--a:315deg"><span class="node"><span class="node-inner">Next.js</span></span></div>
+              </div>
+              <div class="ring ring-c" aria-hidden="true">
+                <div class="arm" style="--a:0deg"><span class="node"><span class="node-inner">RabbitMQ</span></span></div>
+                <div class="arm" style="--a:60deg"><span class="node"><span class="node-inner">Redis</span></span></div>
+                <div class="arm" style="--a:120deg"><span class="node"><span class="node-inner">Docker</span></span></div>
+                <div class="arm" style="--a:180deg"><span class="node"><span class="node-inner">Azure</span></span></div>
+                <div class="arm" style="--a:240deg"><span class="node"><span class="node-inner">Elasticsearch</span></span></div>
+                <div class="arm" style="--a:300deg"><span class="node"><span class="node-inner">PostgreSQL</span></span></div>
+              </div>
+
+              <div class="core" aria-hidden="true">
+                <span class="core-label">Core</span>
+                <b>RD</b>
+                <span class="core-sub">full-stack</span>
+              </div>
+            </div>
+            <p class="orbit-caption"><span class="live-dot"></span> 14 technologies · always spinning</p>
+          </div>
+
+          <div class="skill-groups">
+            <article class="skill-group g-lang reveal">
+              <header><span class="sg-index">01</span><h3>Languages</h3><span class="sg-count">07</span></header>
+              <div class="chips">
+                <span class="chip">C#</span><span class="chip">SQL</span><span class="chip">JavaScript</span><span class="chip">Python</span><span class="chip">TypeScript</span><span class="chip">HTML/CSS</span><span class="chip">Java</span>
+              </div>
+            </article>
+
+            <article class="skill-group g-framework reveal" style="--d:.06s">
+              <header><span class="sg-index">02</span><h3>Frameworks &amp; runtime</h3><span class="sg-count">09</span></header>
+              <div class="chips">
+                <span class="chip">.NET</span><span class="chip">ASP.NET Core</span><span class="chip">.NET 8</span><span class="chip">Web API</span><span class="chip">gRPC</span><span class="chip">Node.js</span><span class="chip">NestJS</span><span class="chip">React</span><span class="chip">Next.js</span>
+              </div>
+            </article>
+
+            <article class="skill-group g-arch reveal" style="--d:.12s">
+              <header><span class="sg-index">03</span><h3>Architecture</h3><span class="sg-count">10</span></header>
+              <div class="chips">
+                <span class="chip">SOLID</span><span class="chip">Clean Architecture</span><span class="chip">Vertical Slice</span><span class="chip">CQRS</span><span class="chip">API Gateway (YARP)</span><span class="chip">Service-per-Database</span><span class="chip">Distributed Systems</span><span class="chip">REST</span><span class="chip">Event-Driven</span><span class="chip">N-Layer</span>
+              </div>
+            </article>
+
+            <article class="skill-group g-tools reveal" style="--d:.18s">
+              <header><span class="sg-index">04</span><h3>Tools &amp; platforms</h3><span class="sg-count">15</span></header>
+              <div class="chips">
+                <span class="chip">RabbitMQ</span><span class="chip">MassTransit</span><span class="chip">Redis</span><span class="chip">Docker</span><span class="chip">Docker Compose</span><span class="chip">CI/CD</span><span class="chip">Azure</span><span class="chip">Hostinger</span><span class="chip">SQL Server</span><span class="chip">PostgreSQL</span><span class="chip">SQLite</span><span class="chip">Marten</span><span class="chip">MongoDB</span><span class="chip">Git/GitHub</span><span class="chip">Elasticsearch</span>
+              </div>
+            </article>
+
+            <article class="skill-group g-ai reveal" style="--d:.24s">
+              <header><span class="sg-index">05</span><h3>AI &amp; automation</h3><span class="sg-count">05</span></header>
+              <div class="chips">
+                <span class="chip">Cursor</span><span class="chip">Claude</span><span class="chip">MCP</span><span class="chip">n8n</span><span class="chip">Custom AI Agents</span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VOYAGE -->
+    <section class="section voyage" id="voyage" data-num="03">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span>Voyage</p>
+          <h2>Two years in,<br><span class="grad">still accelerating.</span></h2>
+        </header>
+
+        <div class="timeline">
+          <article class="tl-item reveal">
+            <span class="tl-marker" aria-hidden="true"></span>
+            <div class="tl-card">
+              <div class="tl-meta">
+                <span class="tl-date">Jul 2024 — Present</span>
+                <span class="tl-loc"><span class="pin"></span>Jaipur, India</span>
+              </div>
+              <h3>Software Engineer</h3>
+              <p class="tl-company">In Time Tec VisionSoft</p>
+              <ul class="tl-list">
+                <li>Led backend development for <strong>Idaho STARS</strong>, rebuilding the .NET 8 platform into vertical-slice and layered architecture for a statewide education system.</li>
+                <li>Improved API response times with indexing, caching and query optimisation — cutting build time and resource use across the codebase.</li>
+                <li>Architected microservices with <strong>Clean Architecture, CQRS</strong> and event-driven messaging via RabbitMQ, MassTransit, Redis and Elasticsearch.</li>
+                <li>Built <strong>AI agents</strong> — a PR review bot and a Jira-integrated auto bug fixer — and mentored engineers on design patterns, SOLID and DSA.</li>
+              </ul>
+              <div class="tl-tags">
+                <span>C#</span><span>.NET 8</span><span>Microservices</span><span>AI Automation</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="tl-item reveal" style="--d:.08s">
+            <span class="tl-marker tl-marker-edu" aria-hidden="true"></span>
+            <div class="tl-card tl-card-edu">
+              <div class="tl-meta">
+                <span class="tl-date">2020 — 2024</span>
+                <span class="tl-grade">CGPA 9.2 / 10</span>
+              </div>
+              <h3>B.Tech, Computer Science Engineering</h3>
+              <p class="tl-company">Rajasthan Technical University <span>·</span> Jaipur</p>
+              <p class="edu-note">A 9.2 CGPA foundation — then straight into production systems.</p>
+              <div class="tl-tags"><span>B.Tech</span><span>CGPA 9.2</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section projects" id="projects" data-num="04">
+      <div class="container">
+        <header class="section-head reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span>Featured Missions</p>
+          <h2>Systems I've <span class="grad">put into orbit.</span></h2>
+          <p class="section-sub">Production platforms, distributed infrastructure and AI tools — built to scale, not just to ship.</p>
+        </header>
+
+        <div class="projects-grid">
+          <div class="project-wrap reveal">
+            <article class="project-card" data-tilt style="--accent:#8b7bff; --accent-rgb:139,123,255">
+              <div class="pc-top">
+                <span class="mission-patch" aria-hidden="true">IS</span>
+                <div class="pc-meta"><span class="pc-kind">Enterprise platform</span><span class="pc-index">M-01</span></div>
+              </div>
+              <h3>Idaho STARS <span>RISE</span></h3>
+              <p class="pc-desc">Statewide childcare education platform · Lead backend developer</p>
+              <ul class="pc-points">
+                <li>Rebuilt the .NET 8 backend into vertical-slice and layered architecture, simplifying a large legacy surface.</li>
+                <li>Partnered across teams on indexing, caching and API tuning to cut latency and build overhead.</li>
+              </ul>
+              <div class="pc-metrics"><span class="metric">Lead backend</span><span class="metric">Statewide scale</span></div>
+              <div class="pc-tags"><span>.NET 8</span><span>ASP.NET Core</span><span>SQL Server</span><span>EF Core</span></div>
+            </article>
+          </div>
+
+          <div class="project-wrap reveal" style="--d:.08s">
+            <article class="project-card" data-tilt style="--accent:#38e8ff; --accent-rgb:56,232,255">
+              <div class="pc-top">
+                <span class="mission-patch" aria-hidden="true">AI</span>
+                <div class="pc-meta"><span class="pc-kind">Distributed + AI</span><span class="pc-index">M-02</span></div>
+              </div>
+              <h3>AI Automation <span>System</span></h3>
+              <p class="pc-desc">Remotely executable tests with AI-generated coverage</p>
+              <ul class="pc-points">
+                <li>Architected remote test execution with Redis caching and RabbitMQ queues for elastic, reliable automation.</li>
+                <li>Integrated AI test generation with vector search — raising coverage while cutting QA effort.</li>
+              </ul>
+              <div class="pc-metrics"><span class="metric">+80% coverage</span><span class="metric">−60% QA effort</span></div>
+              <div class="pc-tags"><span>.NET</span><span>RabbitMQ</span><span>Redis</span><span>Elasticsearch</span><span>MCP</span></div>
+            </article>
+          </div>
+
+          <div class="project-wrap reveal">
+            <article class="project-card" data-tilt style="--accent:#ff6ec7; --accent-rgb:255,110,199">
+              <div class="pc-top">
+                <span class="mission-patch" aria-hidden="true">AE</span>
+                <div class="pc-meta"><span class="pc-kind">EdTech platform</span><span class="pc-index">M-03</span></div>
+              </div>
+              <h3>AspireEdge <span>PG Prep</span></h3>
+              <p class="pc-desc">Medical PG preparation platform for FMGE / NEET PG</p>
+              <ul class="pc-points">
+                <li>Built the NestJS API and React admin portal for mock tests, digital books, PYQs, subscriptions and analytics.</li>
+                <li>Designed admin/user modules with Prisma + PostgreSQL and JWT guards; integrated Razorpay, Apple IAP and Firebase push.</li>
+              </ul>
+              <div class="pc-metrics"><span class="metric">End-to-end build</span><span class="metric">Payments + IAP</span></div>
+              <div class="pc-tags"><span>NestJS</span><span>React</span><span>PostgreSQL</span><span>Prisma</span></div>
+            </article>
+          </div>
+
+          <div class="project-wrap reveal" style="--d:.08s">
+            <article class="project-card" data-tilt style="--accent:#ffd479; --accent-rgb:255,212,121">
+              <div class="pc-top">
+                <span class="mission-patch" aria-hidden="true">HF</span>
+                <div class="pc-meta"><span class="pc-kind">HealthTech platform</span><span class="pc-index">M-04</span></div>
+              </div>
+              <h3>HealthFit <span>Labs</span></h3>
+              <p class="pc-desc">B2B medical lab testing, moved from WhatsApp to web</p>
+              <ul class="pc-points">
+                <li>Engineered B2B lab-integration infrastructure that turned WhatsApp-heavy operations into a structured digital platform.</li>
+                <li>Designed scalable workflows that cut manual lab-management effort dramatically.</li>
+              </ul>
+              <div class="pc-metrics"><span class="metric">−70% manual effort</span><span class="metric">B2B</span></div>
+              <div class="pc-tags"><span>MongoDB</span><span>Express</span><span>React</span><span>Node.js</span></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="projects-cta reveal">
+          <a class="btn btn-ghost" href="https://github.com/ritikdave-9" target="_blank" rel="noopener noreferrer">
+            Explore more on GitHub <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact" data-num="05">
+      <div class="container">
+        <div class="contact-panel reveal">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <div class="contact-orbit" aria-hidden="true"><span></span></div>
+
+          <div class="contact-copy">
+            <p class="eyebrow"><span class="eyebrow-line"></span>Open Channel</p>
+            <h2>Have a mission<br><span class="grad">worth launching?</span></h2>
+            <p class="contact-lead">I'm always up for hard backend problems, ambitious products and teams that care about the craft. Send a signal — I'll answer.</p>
+
+            <div class="contact-links">
+              <div class="channel">
+                <span class="ch-badge" aria-hidden="true">@</span>
+                <div class="ch-body">
+                  <span class="ch-label">Email</span>
+                  <a href="mailto:ritikdave9@gmail.com">ritikdave9@gmail.com</a>
+                </div>
+                <button class="copy-btn" type="button" data-copy="ritikdave9@gmail.com" aria-label="Copy email address">
+                  <span class="copy-ico" aria-hidden="true"></span>
+                </button>
+              </div>
+
+              <a class="channel" href="tel:+919587769429">
+                <span class="ch-badge" aria-hidden="true">☏</span>
+                <div class="ch-body"><span class="ch-label">Phone</span><span>+91 95877 69429</span></div>
+                <span class="ch-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a class="channel" href="https://www.linkedin.com/in/ritik-dave-90b789223" target="_blank" rel="noopener noreferrer">
+                <span class="ch-badge" aria-hidden="true">in</span>
+                <div class="ch-body"><span class="ch-label">LinkedIn</span><span>ritik-dave-90b789223</span></div>
+                <span class="ch-arrow" aria-hidden="true">↗</span>
+              </a>
+
+              <a class="channel" href="https://github.com/ritikdave-9" target="_blank" rel="noopener noreferrer">
+                <span class="ch-badge" aria-hidden="true">gh</span>
+                <div class="ch-body"><span class="ch-label">GitHub</span><span>ritikdave-9</span></div>
+                <span class="ch-arrow" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form-wrap">
+            <form class="contact-form" id="contactForm">
+              <p class="form-title"><span class="live-dot"></span> New transmission</p>
+              <div class="field">
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Ada Lovelace" required minlength="2">
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" placeholder="you@planet.com" required>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell me about the mission…" required minlength="10"></textarea>
+              </div>
+              <button class="btn btn-primary form-submit" type="submit">Launch transmission <span aria-hidden="true">↗</span></button>
+              <p class="form-note" id="formStatus" role="status" aria-live="polite">Opens your mail client — nothing is stored on this site.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="#top" aria-label="Ritik Dave — back to top">
+          <span class="brand-orb" aria-hidden="true"><i></i></span>
+          <span class="brand-name">Ritik <b>Dave</b></span>
+        </a>
+        <p>Full-stack developer · building reliable systems from Jaipur.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#mission">Mission</a>
+        <a href="#arsenal">Arsenal</a>
+        <a href="#voyage">Voyage</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="footer-meta">
+        <p class="footer-clock"><span class="live-dot"></span> Jaipur, IN · <span id="clock">--:--</span> IST</p>
+        <p>© <span id="year">2026</span> Ritik Dave. Built from scratch with HTML, CSS &amp; JS.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" type="button" aria-label="Back to top">↑</button>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span class="toast-ico" aria-hidden="true">✓</span><span id="toastMsg">Copied to clipboard</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
